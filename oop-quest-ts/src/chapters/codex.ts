@@ -1,0 +1,48 @@
+import { paint, say, title, pause } from '../ui';
+
+const TERMS: [string, number, string][] = [
+  ['class', 1, 'Nesnelerin kalıbı: alanları ve metotları tarif eder.'],
+  ['object / instance', 1, 'new ile sınıftan üretilen gerçek örnek; kendi durumu (state) vardır.'],
+  ['field / property', 1, 'Nesnenin verisi (name, hp …).'],
+  ['method', 1, 'Nesnenin davranışı (hit, heal …).'],
+  ['constructor', 1, 'Nesne doğarken bir kez çalışır, alanları kurar.'],
+  ['this', 1, 'Metodu çağıran "şu anki nesne".'],
+  ['reference', 1, 'Değişken nesnenin kendisini değil, ona giden adresi tutar; === aynı nesne mi? diye sorar.'],
+  ['encapsulation', 2, 'Veriyi gizle, değişimi kurallı metotlara bırak.'],
+  ['private / #private', 2, 'private: TS derleme kuralı. #private: JS çalışma anında da gerçek gizlilik.'],
+  ['readonly', 2, 'Sadece constructor\'da atanabilen alan.'],
+  ['getter / setter', 2, 'Alan gibi kullanılan ama arkada kural çalıştıran metotlar.'],
+  ['inheritance (extends)', 3, 'Alt sınıf, üst sınıfın üyelerini miras alır (is-a).'],
+  ['super', 3, 'Üst sınıfın constructor\'ını / metodunu çağırır.'],
+  ['protected', 3, 'Sınıf ve alt sınıfları erişir, dışarısı erişemez.'],
+  ['polymorphism', 4, 'Aynı çağrı, nesnenin gerçek türüne göre farklı davranış.'],
+  ['override', 4, 'Alt sınıfın üst sınıf metodunu yeniden yazması (TS: override anahtar kelimesi).'],
+  ['dynamic dispatch', 4, 'Çalışacak metot çalışma anında nesnenin gerçek sınıfından seçilir.'],
+  ['type narrowing', 4, 'instanceof gibi kontrollerden sonra TS değişken tipini daraltır.'],
+  ['abstraction', 5, 'Ayrıntıyı gizleyip sözleşmeyi göstermek.'],
+  ['abstract class', 5, 'Yarım sınıf: nesnesi üretilemez, alt sınıflar abstract üyeleri doldurur.'],
+  ['template method', 5, 'Sabit iskelet üst sınıfta, değişen adım abstract metotta.'],
+  ['interface / implements', 6, 'Kod içermeyen sözleşme; çoklu implement edilebilir, derlemede silinir.'],
+  ['structural typing', 6, 'TS\'te şekli uyan her nesne interface\'i karşılar (duck typing).'],
+  ['composition (has-a)', 7, 'Davranışı parça nesnelere (Weapon) ver; kalıtım yerine birleştir.'],
+  ['strategy pattern', 7, 'Algoritmayı nesne yapıp çalışma anında değiştirmek.'],
+  ['dependency injection', 7, 'Bağımlılığı içeride yaratmak yerine dışarıdan vermek.'],
+  ['static', 8, 'Sınıfa ait üye; nesneler arası ortak.'],
+  ['factory method', 8, 'Nesne yaratmayı tek yerde toplayan (genelde static) metot.'],
+  ['overloading', 8, 'Aynı isimli metodun birden fazla imzası; tek gövde.'],
+  ['SRP', 9, 'Bir sınıfın değişmesi için tek sebep olmalı.'],
+  ['OCP', 9, 'Genişlemeye açık, değişime kapalı: yeni özellik = yeni sınıf.'],
+  ['LSP', 10, 'Alt sınıf, üst sınıfın yerine geçince kod bozulmamalı.'],
+  ['ISP', 10, 'Küçük, rol odaklı interface\'ler; kimseyi kullanmadığına zorlama.'],
+  ['DIP', 10, 'Üst seviye kod soyutlamaya bağlı olsun; somut parça dışarıdan verilsin.'],
+];
+
+export async function codex(): Promise<void> {
+  title('📖 KAVRAM SÖZLÜĞÜ');
+  let last = 0;
+  for (const [term, ch, def] of TERMS) {
+    if (ch !== last) { say(paint('yellow', `\n  Bölüm ${ch}`)); last = ch; }
+    say(`   ${paint('cyan', term.padEnd(24))} ${def}`);
+  }
+  await pause('Menüye dönmek için Enter…');
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OOP Quest — TypeScript ile OOP Öğren</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔️</text></svg>" />
+</head>
+<body>
+  <div id="app">
+    <header id="hud">
+      <div class="brand"><span class="logo">⚔️</span><b>OOP Quest</b><small>TypeScript</small></div>
+      <div class="stats">
+        <div class="lvl" id="lvl">Lv 1</div>
+        <div class="xpbar"><i id="xpfill"></i></div>
+        <div class="xpnum" id="xpnum">0 XP</div>
+        <div class="prog" id="prog">🏁 0/11</div>
+      </div>
+      <div class="hud-actions">
+        <button id="btn-map" class="hbtn hidden" title="Haritaya dön (Esc)">🗺️ Harita</button>
+        <button id="btn-codex" class="hbtn" title="Kavram sözlüğü">📖</button>
+        <button id="btn-help" class="hbtn" title="Nasıl oynanır?">❔</button>
+        <button id="btn-reset" class="hbtn" title="İlerlemeyi sıfırla">♻️</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="world-screen">
+        <div class="world-wrap">
+          <canvas id="world"></canvas>
+          <div class="world-hint">⌨️ <b>WASD / oklar</b> ile yürü · bir binaya <b>tıkla</b> ya da kapısına gelip <b>E</b> bas</div>
+        </div>
+      </section>
+
+      <section id="scene-screen" class="hidden">
+        <div class="scene-col">
+          <div class="stage-wrap"><canvas id="stage"></canvas></div>
+        </div>
+        <div id="feed"></div>
+      </section>
+    </main>
+
+    <div id="modal" class="hidden"><div class="modal-box"><button class="modal-x" id="modal-x">✕</button><div id="modal-body"></div></div></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

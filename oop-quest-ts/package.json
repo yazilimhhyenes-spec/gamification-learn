@@ -1,0 +1,15 @@
+{
+  "name": "oop-quest-ts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OOP Quest — TypeScript ile OOP'yi oynayarak öğren (konsol oyunu)",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.0"
+  }
+}
